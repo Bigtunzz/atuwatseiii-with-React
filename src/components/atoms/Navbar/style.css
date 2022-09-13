@@ -1,0 +1,7 @@
+.nav{
+    font-size: 40px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
