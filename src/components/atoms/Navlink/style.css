@@ -1,0 +1,6 @@
+.nav-link{
+    font-size: 2rem;
+}
+.nav-link:hover{
+    color: var(--clr-red);
+}
