@@ -1,0 +1,22 @@
+.floating-nav {
+  background-color: rgb(211, 0, 2);
+  height: 60px;
+  border-radius: 100px;
+  margin: 0 auto;
+  padding-left: 6px;
+}
+.last-section {
+  position: fixed;
+  bottom: 3%;
+  /* font-size: 0.2rem; */
+  justify-content: center;
+}
+.v-upside {
+  background-color: rgb(211, 0, 2);
+  transform: translateY(5px);
+  color: white;
+  cursor: pointer;
+  padding: 0 8px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}

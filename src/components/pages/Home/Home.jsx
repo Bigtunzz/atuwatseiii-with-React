@@ -1,19 +1,14 @@
 import React from "react";
-import { Largetext, NavItem1, NavItem2, NavItem3 } from "../../atoms";
-import { Nav } from "../../molecules";
+import { Largetext} from "../../atoms";
+import { FloatingNav, Nav } from "../../molecules";
 import "./style.css";
 
 export const Home = () => {
   return (
-    <div className="home">
+    <div className="home d-flex column ai-center">
       <Nav />
       <Largetext />
-
-    <div>
-      <NavItem1/>
-      <NavItem2/>
-      <NavItem3/>
-    </div>
+      <FloatingNav/>
     </div>
   );
 };

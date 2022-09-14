@@ -1,0 +1,24 @@
+.d-none {
+  text-decoration: none;
+}
+.link-item {
+  padding: 5px 20px;
+  /* font-size: 0.4rem; */
+}
+.link-item:hover {
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+.link-item:not(:last-child) {
+  margin-right: 5px;
+}
+.link-item:last-child {
+  margin-right: 7px;
+}
+.link-item-style {
+  font-size: 0.8rem;
+  position: relative;
+  bottom: 4px;
+  left: 5px;
+}

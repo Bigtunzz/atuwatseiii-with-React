@@ -1,9 +1,4 @@
-.nav{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.nav-links{
-    display: flex;
+.nav-style{
+    height: 85px;
+    padding: 0 20px;
 }
