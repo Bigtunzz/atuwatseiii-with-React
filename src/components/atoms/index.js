@@ -4,3 +4,5 @@ export * from './NavItem';
 export * from './Logo';
 export * from './Largetext';
 export * from './Text';
+export * from './Arrrow';
+export * from './Square';

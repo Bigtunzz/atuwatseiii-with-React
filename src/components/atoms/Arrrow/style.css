@@ -1,0 +1,18 @@
+/* .arrow{
+
+    display: flex;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 28px;
+    height: 28px;
+    background-color: transparent;
+    border-radius: 50%;
+    color: rgb(53, 52, 52);
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid black;
+    cursor: pointer;
+} */
