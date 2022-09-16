@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 // import { Arrow } from "../../a
 import slideImg from "../../../assets/abejeoye.jpg";
+import { Arrow, BtnSliderNext, BtnSliderPrev } from "../../atoms";
 import "./style.css";
 
 export const History = () => {
@@ -22,21 +23,19 @@ export const History = () => {
       </div> */}
       <section className="history-container">
         <div className="historySlider">
-          <div className="backArrow">
-            {/* <Link className="link-style" to="/">
-            carry me go back
-          </Link> */}
+          {/* <div className="backArrow">
             <a href="../index.html">
               <div className="arrow">⟵</div>
             </a>
-          </div>
+          </div> */}
+          <Arrow/>
           <div className="carousel">
             <div className="slide fade">
               <img src={slideImg} alt="" className="carouselImg" />
             </div>
 
-            <button className="prev">🢐</button>
-            <button className="next">🢒</button>
+            <BtnSliderPrev/>
+            <BtnSliderNext/>
           </div>
         </div>
         <div className="container">

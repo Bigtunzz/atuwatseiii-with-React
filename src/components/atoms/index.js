@@ -6,3 +6,4 @@ export * from './Largetext';
 export * from './Text';
 export * from './Arrrow';
 export * from './Square';
+export * from './BtnSlider';

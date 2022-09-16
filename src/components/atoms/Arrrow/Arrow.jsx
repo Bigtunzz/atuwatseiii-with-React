@@ -4,22 +4,20 @@ import './style.css'
 
 export const Arrow = () => {
   return (
-    <Link className='d-none arrow' to="/">
-      <div
-    //   style={
-    //     {
-            
-    //     }
-    //   }
-    //     width="28px"
-    //     height="28px"
-    //     direction="row"
-    //     wrap="no-wrap"
-    //     order="0"
-    //     className="sc-bdvvtL sc-bBHHxi gqOcBT hUXvSJ"
-      >
-        ⟵
+    <>
+      <div className="backArrow">
+        <Link className="d-none" to="/">
+          <div className="arrow">⟵</div>
+        </Link>
+        {/* <Link className="link-style" to="/">
+            carry me go back
+          </Link> */}
+        {/* <a href="../index.html">
+          <div className="arrow">⟵</div>
+        </a> */}
       </div>
-    </Link>
+
+      {/* <Link className="d-none arrow" to="/"></Link> */}
+    </>
   );
 }

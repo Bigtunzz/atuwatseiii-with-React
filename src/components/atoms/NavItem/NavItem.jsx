@@ -5,7 +5,7 @@ import "./style.css";
 export const NavItem1 = () => {
   return (
     <div className="link-item">
-      <Link className="d-none" to="history">
+      <Link className="d-none" to="Ginuwa">
         <div direction="row" wrap="no-wrap" order="0" >
           <svg
             className="link-images"
