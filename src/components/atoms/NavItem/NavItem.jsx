@@ -177,7 +177,7 @@ export const NavItem5 = () => {
 export const NavItem6 = () => {
   return (
     <div className="link-item speeches">
-      <Link className="d-none" to="history">
+      <Link className="d-none" to="Account">
         <div direction="row" wrap="no-wrap" order="0">
           <svg
             className="link-images"
