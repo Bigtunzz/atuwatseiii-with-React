@@ -1,14 +1,22 @@
 import React from "react";
-import { Largetext} from "../../atoms";
-import { FloatingNav, Nav } from "../../molecules";
+import {useState} from "react";
+import { Largetext, Overlay} from "../../atoms";
+import { FloatingNav, HambugerMenu, Nav } from "../../molecules";
 import "./style.css";
 
 export const Home = () => {
+    const [floatingNav, setFloatingNav] = useState(false);
+    const lowerNav = () => {
+      setFloatingNav((floatingNav) => !floatingNav);
+    };
+    let checkFloatingNav = floatingNav ? "active" : "";
   return (
     <div className="home d-flex column ai-center">
-      <Nav />
+      <Overlay activate={checkFloatingNav} />
+      <Nav hamburgerFunc={lowerNav} />
       <Largetext />
-      <FloatingNav/>
+      <HambugerMenu activate={checkFloatingNav} func={lowerNav} />
+      <FloatingNav />
     </div>
   );
 };

@@ -1,9 +1,17 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import "./style.css";
 
-export const BtnSliderPrev = () => {
-  return <button className="prev">🢐</button>;
-}
-export const BtnSliderNext = () => {
-  return <button className="next">🢐</button>;
-}
+export const BtnSliderPrev = ({ moveSlide }) => {
+  return (
+    <button onClick={moveSlide} className="prev">
+      🢐
+    </button>
+  );
+};
+export const BtnSliderNext = ({ moveSlide }) => {
+  return (
+    <button className="next" onClick={moveSlide}>
+      🢐
+    </button>
+  );
+};

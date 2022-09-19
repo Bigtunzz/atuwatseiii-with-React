@@ -1,0 +1,40 @@
+.nav-position-style{
+    display: flex;
+    line-height: 150%;
+    margin: 14px 0;
+    justify-self: stretch;
+    width: 100%;
+    transform: all 0.1s; 
+}
+.nav-position-style-lineheight{
+    /* line-height: 110%; */
+    transform: translateX(-1.9rem);
+}
+.margin-right8{
+    margin-right: 8px;
+}
+.moveleft8px{
+    transform: translateX(-15px);
+}
+.hamburger-image{
+    transform: scale(0.5) translateY(-2.9rem) ;
+}
+.menu-text{
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+}
+.menu-text:hover{
+    color: blue;
+}
+.menu-text:hover>*{
+    color: blue;    
+}
+.menu-text-sub{
+    font-size: 0.6rem;
+    position: relative;
+    bottom: 6px;
+    color: black;
+}

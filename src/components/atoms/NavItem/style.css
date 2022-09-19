@@ -21,4 +21,17 @@
   position: relative;
   bottom: 4px;
   left: 5px;
+  color: white;
 }
+
+@media all and (max-width:660px) {
+    .account{
+        display: none;
+    }
+    .speeches{
+        display: none;
+    }
+        .links-font-size {
+        font-size: 0.7rem;
+    }
+  }

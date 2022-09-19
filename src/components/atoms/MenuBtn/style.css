@@ -1,0 +1,10 @@
+.hamburger{
+    position: fixed;
+    display: none;
+    cursor: pointer;
+}
+@media all and (max-width:1190px) {
+        .hamburger{
+        display: flex;
+    }
+}

@@ -1,43 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 // import { Arrow } from "../../a
-import slideImg from "../../../assets/abejeoye.jpg";
-import { Arrow, BtnSliderNext, BtnSliderPrev } from "../../atoms";
+// import slideImg from "../../../assets/abejeoye.jpg";
+import { Arrow, BtnSliderNext, BtnSliderPrev,Overlay } from "../../atoms";
+import { FloatingNav,HambugerMenu } from "../../molecules";
 import "./style.css";
-
+const images = [
+  "akengbuwa",
+  "abejeoye",
+  "atogbuwa",
+  "atuwatse_ii",
+  "atuwatse_iii",
+  "erejuwa_ii",
+  "interregnum",
+];
 export const History = () => {
+  const [slide, setSlide] = useState(6);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      slide < images.length - 1 ? setSlide((slide) => slide + 1) : setSlide(0);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [slide]);
+  const nextSlide = () => {
+    slide < images.length - 1 ? setSlide((slide) => slide + 1) : setSlide(0);
+  };
+  const prevSlide = () => {
+    // setSlide(setSlide((slide) => slide - 1));
+    // if(slide<0){
+    //   setSlide(images.length - 1);
+    // }
+    console.log(slide)
+    slide === 0
+      ? setSlide(slide => slide=5)
+      : setSlide(setSlide(slide => slide-1));
+  };
+      const [moveNav, setmoveNav] = useState(false);
+      const lowerNav = () => {
+        setmoveNav((moveNav) => !moveNav);
+      };
+      let checkmoveNav = moveNav ? "active" : "";
+
   return (
     <>
-      {/* <div className="history d-flex ai-center col-12">
-        <div className="section1 d-flex column ai-center  height">
-          <Arrow />
-          <Slider />
-        </div>
-        <div className="section2  height">
-
-          <div className="history-text">History</div>
-          <div className='text-height'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis magnam architecto numquam consectetur totam quam magni qui facilis? Quo magni natus eius eligendi nisi nobis labore sit non distinctio qui autem recusandae quod hic culpa consequuntur, tenetur quam eaque sint similique exercitationem temporibus, libero quas voluptatem provident. Laborum, debitis! Vitae esse aliquid iusto illo tenetur quia consectetur dignissimos aut in accusantium. Corporis dolores molestiae, a sequi fuga saepe possimus, at amet deleniti quidem sint fugit eos quae nemo hic accusamus, eaque quaerat. Doloremque, eaque animi ea exercitationem qui tempora corporis ipsa velit assumenda, rerum numquam. Necessitatibus reiciendis sequi commodi sunt, repellendus expedita. Commodi quaerat pariatur ipsam, vel soluta voluptatum sint natus libero? Iusto est in eos minima omnis suscipit voluptatem quisquam harum odio voluptatum adipisci autem neque blanditiis sed vitae unde, excepturi aliquid? Sed temporibus pariatur excepturi, ipsum asperiores sunt perspiciatis deserunt non nisi a cum maiores modi harum quo eveniet totam hic inventore. Consectetur minus voluptatum voluptatem facilis ratione consequuntur pariatur dolorem, ex, culpa quos incidunt eius ab eaque est porro ullam quas commodi earum dignissimos corrupti asperiores deserunt minima. Ratione repellat at amet provident, animi perferendis reiciendis reprehenderit quis ut blanditiis aut illum dolores velit maxime quas ipsa ipsum excepturi. Rem ipsum voluptatem numquam! Quis totam eaque perspiciatis ad veritatis cupiditate molestias numquam pariatur velit sequi hic, vel exercitationem, obcaecati eveniet culpa neque ducimus officiis, eius suscipit beatae commodi mollitia voluptate similique eum. Asperiores voluptatum accusantium culpa repudiandae dolor perferendis doloremque facere beatae vel ipsa esse ex, porro sunt officia, maiores excepturi eligendi quasi similique, vitae quibusdam optio! Laudantium modi quae fugiat doloremque iure optio qui expedita, impedit voluptatibus. Odit nam itaque eveniet quia totam error quam voluptates, animi, rem consectetur nulla harum incidunt quod ipsum dignissimos! Ipsum quis voluptatem nostrum dolorem illum voluptas eaque non ab mollitia, modi culpa possimus perferendis enim voluptatibus dolorum eius distinctio quo provident porro dolores? Quibusdam quam libero quae, earum, tempora deleniti qui quas facere ea voluptatum non placeat enim. Excepturi consequuntur necessitatibus placeat eos, cupiditate eum temporibus numquam adipisci cumque voluptatum vitae nam, quod dignissimos nesciunt illum, exercitationem perspiciatis commodi sunt! Consequatur exercitationem repellat optio commodi in quaerat culpa quisquam voluptatem, hic libero magnam molestiae sapiente autem voluptate mollitia ea placeat? Repudiandae nobis tempora ex earum assumenda eius obcaecati veniam perferendis optio, consequatur in possimus! Corrupti ratione tempore aliquid libero nemo praesentium fuga aliquam et, aut exercitationem aspernatur nobis quis? Soluta est cum laborum aut nemo accusamus? Autem, eligendi. Natus distinctio aspernatur numquam dicta culpa a dolorum excepturi odit provident nisi necessitatibus pariatur, quaerat magnam saepe illum atque cumque ex. Quam similique vitae blanditiis commodi totam nobis beatae ex, corrupti maiores incidunt quo explicabo deserunt rerum tenetur perferendis laborum quos corporis perspiciatis quas soluta, officiis veritatis inventore. Neque laudantium porro maiores illum tempore amet, incidunt impedit. Iste, quidem provident? Temporibus natus voluptate saepe quo veritatis laborum eveniet, dolorem cum cupiditate quae iure ut reiciendis possimus atque, harum et eum accusantium exercitationem similique in dolorum consequatur inventore? Earum commodi eveniet animi debitis ea aliquid ducimus doloremque enim perferendis soluta deserunt, tempora cum placeat optio aut velit in voluptates. Animi nostrum reprehenderit iste eum soluta. Saepe pariatur fugiat nulla. Esse cumque voluptates ullam architecto quod, modi maiores, itaque est corrupti facere consequuntur dignissimos nam? Amet, odit. Repellat, omnis necessitatibus libero placeat ipsum quibusdam exercitationem similique explicabo velit ipsam, delectus maxime? Deserunt commodi vitae, architecto animi, ut assumenda culpa, est atque voluptatibus dolore consequuntur itaque. Veritatis earum exercitationem inventore. Quod vel commodi optio cumque illo neque id perferendis iure dolore quos sapiente numquam totam, est magni inventore, dignissimos laboriosam cum labore blanditiis porro facere atque eaque ab! Rerum vitae, unde dolores recusandae eos cum excepturi quidem assumenda aspernatur possimus quasi facere nesciunt voluptatibus quibusdam consequatur porro omnis? Esse veniam vel iure dolore reprehenderit. Laudantium atque exercitationem sunt eveniet quisquam? At delectus velit, expedita non asperiores assumenda sunt amet quas ab perferendis praesentium placeat vitae quis necessitatibus pariatur quae dolorum repellat harum omnis. Maiores, placeat quos? Dolore dolores vitae modi ex! Atque sit placeat aliquam incidunt mollitia quae quaerat molestiae asperiores exercitationem ex facilis in sint cum voluptates, consectetur dolorem, dolores expedita nemo? Nulla corporis eveniet quibusdam. Rem maxime est accusamus nihil harum commodi consequatur?
-          </div>
-        </div>
-      </div> */}
       <section className="history-container">
+        <Overlay activate={checkmoveNav} />
+        <HambugerMenu
+          activate={checkmoveNav}
+          func={lowerNav}
+          className="centralize"
+        />
         <div className="historySlider">
-          {/* <div className="backArrow">
-            <a href="../index.html">
-              <div className="arrow">⟵</div>
-            </a>
-          </div> */}
-          <Arrow/>
+          <Arrow />
+
           <div className="carousel">
-            <div className="slide fade">
-              <img src={slideImg} alt="" className="carouselImg" />
+            <div className="slide">
+              <img
+                src={require(`../../../assets/${images[slide]}.jpg`)}
+                alt="1"
+                className="carouselImg"
+              />
             </div>
 
-            <BtnSliderPrev/>
-            <BtnSliderNext/>
+            <BtnSliderPrev moveSlide={prevSlide} />
+            <BtnSliderNext moveSlide={nextSlide} />
           </div>
         </div>
+        <FloatingNav m={'centralize'} />
         <div className="container">
           <div className="history_container">
             <h2 className="history_text">History</h2>
@@ -45,92 +75,210 @@ export const History = () => {
           <div className="scroll_container">
             <div className="history_content">
               <div className="paragraph">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
-                mollitia voluptates iusto consectetur quod quos voluptate. Neque
-                officia hic, quos quas consequatur dicta officiis dolores eius
-                ullam quisquam nisi odio! Numquam aliquid voluptatibus possimus
-                ducimus cumque nihil eum eveniet, accusamus, veritatis
-                recusandae soluta esse voluptas dicta! Nam perferendis veniam
-                temporibus incidunt perspiciatis repellat amet atque quia. Unde
-                maiores commodi accusantium nesciunt optio mollitia tempore
-                illum, at quos ipsa libero nulla facere! Amet beatae inventore
-                iste pariatur impedit. Assumenda omnis fugiat aut natus. Quia
-                voluptate esse nemo ipsa, earum corrupti magnam, deserunt
-                provident hic quisquam velit dignissimos veritatis sapiente
-                voluptatem cupiditate accusantium sit unde ullam eaque cumque.
-                Quasi voluptatibus, laudantium eum ut ipsam odio excepturi iure
-                tempore obcaecati. Nam fugiat dicta sint neque maiores laborum
-                aspernatur, quo, iusto, fugit officia facere distinctio dolore
-                sapiente eligendi nobis ullam voluptate vero minima voluptatum
-                accusamus temporibus id provident. Deserunt magnam vel corporis
-                necessitatibus alias omnis perspiciatis nam repellendus, commodi
-                quod veniam, incidunt debitis quas odit esse tenetur repellat
-                nobis expedita! Deserunt error ullam dignissimos quaerat dolorem
-                ad atque ducimus temporibus accusantium quibusdam. Dolores
-                numquam nam natus dignissimos cum corporis tenetur a eius ut
-                necessitatibus in fugit, quos voluptate maxime saepe veniam est
-                accusamus ducimus praesentium magnam nulla cupiditate nihil
-                autem. Animi non, quibusdam quis natus veritatis, suscipit, iure
-                qui nobis reiciendis ullam accusantium unde a assumenda
-                corporis? Non harum iure nemo dolorem maxime neque nostrum earum
-                eum praesentium cum doloribus est ipsa ut corrupti asperiores
-                eveniet porro dignissimos fugit similique dicta, recusandae nam
-                aspernatur? Rem omnis at obcaecati dolorum dolores, quo nihil
-                deleniti impedit officiis porro, dolorem quos? Officiis
-                molestias earum quibusdam, dicta nihil dignissimos et aspernatur
-                incidunt architecto, consectetur id odit optio quos quod ut,
-                tempora fugit ratione! Atque asperiores perferendis quo enim
-                perspiciatis illo voluptas qui libero deserunt molestiae sint
-                itaque minima, cupiditate esse dolores laboriosam culpa aliquam
-                animi amet omnis ratione! Facilis officia, alias sed quae
-                nesciunt consequatur eius voluptas illum praesentium animi
-                cumque ullam numquam aut quia facere repudiandae similique fugit
-                quos nemo dolorum laboriosam quasi dignissimos esse cum! A neque
-                corrupti molestias ad repellendus, nemo porro dolor ducimus?
-                Minima ducimus odio et qui doloribus distinctio at suscipit
-                nostrum iure quaerat recusandae consequuntur, delectus
-                necessitatibus sunt accusamus asperiores nam accusantium minus
-                quos aliquid molestias? Dolores nesciunt obcaecati delectus esse
-                iusto soluta officiis, ut dignissimos aut, laborum odio eum,
-                expedita quas ullam culpa pariatur atque! Laborum mollitia hic
-                velit exercitationem minima et sequi, voluptatem aliquam ipsa,
-                ex delectus rem soluta tempora cum possimus nobis! Ratione
-                nostrum in minima dolorem accusantium laboriosam debitis
-                delectus, ad mollitia sunt soluta ex qui, minus, sapiente
-                doloremque officia ut. Cum quibusdam molestiae et neque deleniti
-                exercitationem ipsam quasi sint qui ipsum consequuntur
-                voluptatibus unde odit provident quisquam libero, illum aperiam
-                accusantium recusandae non autem alias eum hic quis! Numquam at
-                modi nisi, sunt qui, omnis, veritatis placeat odit quaerat
-                cupiditate eum nesciunt totam porro vel? Doloremque dolores
-                maiores recusandae vel molestiae consectetur iure, enim
-                consequuntur suscipit est aperiam minus iusto aliquam sequi non
-                ex, sint corporis obcaecati! Cum quia numquam sed. Tempora
-                voluptate et, perferendis porro atque consectetur a ea quos
-                adipisci, fugiat quia repudiandae libero vero ut? Consectetur
-                earum quam cumque adipisci labore in alias nam obcaecati facere
-                deserunt culpa autem rerum saepe, placeat suscipit repellat
-                natus sunt iure error illo! Enim magnam fugit, nemo doloremque
-                consequatur quae velit reprehenderit reiciendis perferendis sit
-                assumenda, aspernatur non! Aut explicabo, nisi qui distinctio
-                voluptates aperiam veritatis beatae totam perspiciatis numquam
-                repellat facilis laboriosam cupiditate accusantium, amet odio
-                voluptatibus, iusto debitis! Blanditiis consequatur ipsa
-                doloribus fuga nihil magnam sed similique molestiae maxime
-                mollitia distinctio eaque veniam, voluptatibus ut, sapiente
-                recusandae ratione aliquam beatae unde rerum libero laboriosam.
-                Qui voluptate inventore illo numquam veniam sapiente, fuga quas
-                assumenda nemo possimus corporis veritatis vel tempore
-                consequuntur magnam magni minima corrupti id quos ab? Quibusdam
-                officia nobis labore neque doloremque accusamus, sapiente
-                numquam vitae harum sit nihil enim molestias possimus
-                praesentium ab assumenda quos at optio nam vel iste magni
-                consequatur. Sit repudiandae ipsum molestias numquam vero,
-                cumque illum dicta officia libero enim suscipit vel quia
-                aspernatur aperiam maiores, tempora quo veritatis minima fugit
-                temporibus, nihil accusantium illo labore praesentium!
-                Dignissimos ratione facilis consequuntur nemo, repellendus quam
-                rem praesentium deleniti eveniet?
+                <h5 className="before-the-monarchy">Before The Monarchy</h5>
+
+                <p className="para-text">
+                  Available information about this period has been quite sketchy
+                  and derived mainly from oral tradition that has existed since
+                  before records. What has been established, however, is that
+                  some people groups of Yoruba, Nupe and Igala origins came at
+                  different times and were the core groups that constituted the
+                  Itsekiri nation.
+                </p>
+
+                <p className="para-text">
+                  Research still has to be done to provide more information in
+                  this area. This is more so when we consider that the Ebu
+                  people in Delta North of Nigeria have words and language
+                  formations similar to those of the Itsekiri language.
+                  Likewise, the Oworo people of Kogi State in the North of
+                  Nigeria also have a similar linguistic affinity.
+                </p>
+
+                <p className="para-text">
+                  These are no neighbours at all but are far removed from one
+                  another and with several other and very different ethnic
+                  nationalities between them and us. It cannot be said that such
+                  traces of linguistic affinity was derived from proximity or
+                  other forms of contact and interaction over an extended period
+                  for that to have been developed.
+                </p>
+
+                <p className="para-text">
+                  It is instructive to note that such linguistic affinity does
+                  not exist between Edo and Itsekiri even though the Edo group,
+                  which was the last of the people group, came and joined us
+                  since from over five centuries ago. This means that by the
+                  time they arrived that long ago, the Itsekiri language had
+                  been set and was well established already. The only traces of
+                  Edo in the Itsekiri language are in royal and chieftaincy
+                  matters and references. This is understandable because those
+                  institutions came from the Benin Kingdom.
+                </p>
+
+                <p className="para-text">
+                  One thing that can be firmly stated is that by the fifteenth
+                  century, the core of the Itsekiri nation had been established.
+                  It was only to be affected by the factors of growth dynamics.
+                </p>
+              </div>
+              <div className="paragraph">
+                <h5 className="the-monarchy">The Monarchy</h5>
+
+                <p className="para-text">
+                  The monarchical era covered from 1480 to 1848 AD, about 360
+                  years of an uninterrupted period when kings ruled the kingdom.
+                  Sixteen (16 kings) Olus reigned in succession during this
+                  period.
+                </p>
+
+                <p className="para-text">
+                  As this era progressed, so did the Iwere Kingdom grow in the
+                  development of our governance, world view, socio-cultural
+                  values and practices and religion. The result was greatly
+                  enhanced through our early contact with Europeans, some of
+                  whom lived among us as Industrialists and international
+                  businessmen. For instance, the place called JAMANI (our name
+                  for Germany), which is very close to the mouth of the OLERO
+                  River in Warri North Local Government Area, got that name from
+                  being an Industrial Base of some German industrialists who had
+                  settled there.
+                </p>
+
+                <p className="para-text">
+                  This was when Christian missionaries came, most from Portugal
+                  and lived among us at the request of the Olu of Iwere (as the
+                  Olu of Warri was then known) who did so in a letter to the
+                  Pope. This was also when we subsequently had the then Crown
+                  Prince, who went at his father’s instance to Portugal for his
+                  University education and as a guest of the Royal Court of
+                  Portugal.
+                </p>
+
+                <p className="para-text">
+                  He was the one who gave the commission for the Warri Monarch’s
+                  Crown to be made with the Cross of Jesus Christ at its top to
+                  signify that his kingdom (The Iwere Kingdom as it was then
+                  known) was under the Lordship of Jesus Christ. His Majesty
+                  Atuwatse, brought materials of the Order of Christ which have
+                  since been part of the regalia of the Olu of Warri. These were
+                  made and have been in use for over 350 years. The concept and
+                  the mode of the regalia of the Chiefs of Warri Kingdom were
+                  also derived from this source.
+                </p>
+
+                <p className="para-text">
+                  There is a sense in which it could be rightly said that this
+                  era was like the golden age for us as a people. This is
+                  because we were on our own, under our king and followed our
+                  system of governance. We related with others as equals,
+                  whether they be Europeans or fellow Africans. We enslaved
+                  others who had a good measure of life, making them proud to be
+                  part of us. Our territory was intact. No people invaded us to
+                  take our land, nor did we fight any expansionist war to take
+                  other people’s land.
+                </p>
+              </div>
+              <div className="paragraph">
+                <h5 className="the-interregnum">The Interregnum</h5>
+
+                <p className="para-text">
+                  This is a period of eighty-eight (88) years which began in
+                  1848 AD after the demise of Olu Akengbuwa. All attempts to
+                  have a succeeding Olu failed, one after the other. We then had
+                  Governors who were appointed. We had four of them in
+                  succession, which began with Diare, an Omajaja. He was
+                  succeeded by Tsaninomi (also spelt Chaninomi), an Otonolu, who
+                  succeeded Olomu, another Omajaja. Finally, he was succeeded by
+                  Nanna (real name is EREOMALA which was corrupted by Europeans
+                  to Nanna), who was one of his sons.
+                </p>
+
+                <p className="para-text">
+                  The Governors knew they were appointed to govern in trust for
+                  the kingdom on behalf of the Olu and conducted themselves as
+                  such. Among other duties, they collected customs and
+                  additional revenues from foreigners who came on business and
+                  handled all external affairs on behalf of the throne.
+                  Moreover, they knew they would cease functioning as soon as an
+                  Olu was crowned. Therefore, they were also accountable in that
+                  regard.
+                </p>
+              </div>
+              <div className="paragraph">
+                <h5 className="colonial-incursion">Colonial Incursion</h5>
+
+                <p className="para-text">
+                  During the time of Nanna (Ereomala) as Governor, the war with
+                  the British Colonialists broke out in 1894 A D. The battle was
+                  fierce, and the British could not make any headway despite
+                  their superior firepower. However, through the betrayal of
+                  Nanna by someone who gave some vital intelligence information
+                  to the British, they adjusted their tactics and were then
+                  enabled to start gaining the upper hand against him. He was
+                  quick to rightly read the decisive turn of the tide against
+                  him and left through the creeks and some canals he had his men
+                  dug so that he could divert his movement from some parts of
+                  the existing waterways he wanted to avoid for strategic
+                  reasons.
+                </p>
+
+                <p className="para-text">
+                  He finally arrived in Lagos, where he first met his friend,
+                  Akitoye, the then Oba of Lagos. After discussing with his
+                  friend, he turned himself into the British in Lagos, which was
+                  already a British Colony at the time.
+                </p>
+              </div>
+              <div className="paragraph">
+                <h5 className="our-fusion">Our Fusion with Others</h5>
+
+                <p className="para-text">
+                  Although that war ended the era of the Governors, the
+                  interregnum continued. This time, however, Warri Kingdom was
+                  fused into what became The Southern Protectorate under
+                  colonial Britain. Chief Dure Numa (real name is Omadoghogbone
+                  which the British corrupted to Dure) was appointed by the
+                  British as a Paramount Chief who ruled under colonial Britain.{" "}
+                </p>
+
+                <p className="para-text">
+                  On the demise of Dure Numa in 1932, the clamour for the return
+                  to our Monarchy finally gained ground and brought the 88 years
+                  of the interregnum to its end. By this time, Iwere had since
+                  become Warri, and Itsekiri had become Jekri, as the British
+                  preferred to call them. Warri was then the Headquarters of
+                  Warri Province under the British Colonial Administration.
+                </p>
+
+                <p className="para-text">
+                  Although the Monarchy returned in 1936 with the crowning of
+                  his Majesty Ginuwa II, it was no longer the same. This was
+                  because the Iwere Kingdom was now part of Warri Province over
+                  which Chief Dure Numa exercised authority no longer on behalf
+                  of the Olu of Iwereland as the four Itsekiri Governors were
+                  and did, but now on behalf of the British colonial Crown.
+                </p>
+              </div>
+              <div className="paragraph">
+                <h5 className="nigeria">A Part of Nigeria</h5>
+
+                <p className="para-text">
+                  By the time we returned to the Monarchy in 1936 with the
+                  crowning of His Majesty Ogiame Ginuwa II, Nigeria had existed
+                  as an entity for twenty-two (22) years with the amalgamation
+                  of the Northern and Southern Protectorates in 1914 which
+                  brought this about.
+                </p>
+
+                <p className="para-text">
+                  As we became part of Nigeria, we ceased to be entirely on our
+                  own, just like the other component ethnic nationalities that
+                  constitute the Nigerian nation-state. This is why the return
+                  of the Monarchy did not amount to the system we had from the
+                  beginning. Instead, our fortunes had become tied to that of
+                  the others as well.
+                </p>
               </div>
             </div>
           </div>

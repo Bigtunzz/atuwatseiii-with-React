@@ -150,7 +150,7 @@ export const NavItem4 = () => {
 
 export const NavItem5 = () => {
   return (
-    <div className="link-item">
+    <div className="link-item account">
       <Link className="d-none" to="history">
         <div direction="row" wrap="no-wrap" order="0">
           <svg
@@ -176,7 +176,7 @@ export const NavItem5 = () => {
 };
 export const NavItem6 = () => {
   return (
-    <div className="link-item">
+    <div className="link-item speeches">
       <Link className="d-none" to="history">
         <div direction="row" wrap="no-wrap" order="0">
           <svg

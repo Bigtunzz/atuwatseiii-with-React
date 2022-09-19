@@ -1,11 +1,12 @@
 import React from 'react';
-import { Logo, Navlink } from '../../atoms';
+import { Logo, MenuBtn, Navlink } from '../../atoms';
 import './style.css';
 
-export const Nav = () => {
+export const Nav = ({hamburgerFunc}) => {
   return (
     <nav className="nav-style d-flex jc-space-between ai-center col-12">
       <Logo />
+      <MenuBtn hamburgerFunc={hamburgerFunc} />
       <div className="d-flex">
         <Navlink>
           <div className="nav-links-items">History</div>
@@ -22,4 +23,4 @@ export const Nav = () => {
       </div>
     </nav>
   );
-}
+};

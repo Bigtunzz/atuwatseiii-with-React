@@ -2,14 +2,19 @@
   background-color: rgb(211, 0, 2);
   height: 60px;
   border-radius: 100px;
-  margin: 0 auto;
+  margin: auto auto;
   padding-left: 6px;
 }
 .last-section {
   position: fixed;
   bottom: 3%;
+margin: 0 auto;
+/* position: absolute; */
   /* font-size: 0.2rem; */
   justify-content: center;
+}
+.last-section.active{
+transform: translateY(70px);
 }
 .v-upside {
   background-color: rgb(211, 0, 2);
@@ -19,4 +24,7 @@
   padding: 0 8px;
   border-radius: 3px;
   font-size: 0.8rem;
+}
+.v-upside.active{
+    transform: rotate(180deg) translateY(-5px);
 }

@@ -5,3 +5,9 @@
     font-weight: 500;
     color: white;
 }
+@media all and (max-width: 988px){
+    .Largetext{
+        font-size: 2rem;
+        margin-top: 350px;
+    }
+}

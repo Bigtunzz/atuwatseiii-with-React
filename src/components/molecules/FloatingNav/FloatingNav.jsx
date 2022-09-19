@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import {
   NavItem1,
   NavItem2,
@@ -8,12 +8,23 @@ import {
   NavItem6,
 } from "../../atoms";
 
-import './style.css';
+import "./style.css";
 
-export const FloatingNav = () => {
+export const FloatingNav = ({m}) => {
+  const [floatingNav, setFloatingNav] = useState(false);
+  const lowerNav = () => {
+    setFloatingNav((floatingNav) => !floatingNav);
+  };
+  let checkFloatingNav = floatingNav ? "active" : "";
   return (
-    <div className="last-section d-flex column ai-center">
-      <span className="v-upside" id="v-btn">
+    <div
+      className={`last-section ${checkFloatingNav} d-flex column ai-center ${m}`}
+    >
+      <span
+        className={`v-upside ${checkFloatingNav} `}
+        id="v-btn"
+        onClick={lowerNav}
+      >
         v
       </span>
       <div className="floating-nav d-flex ai-center">
@@ -26,4 +37,4 @@ export const FloatingNav = () => {
       </div>
     </div>
   );
-}
+};
