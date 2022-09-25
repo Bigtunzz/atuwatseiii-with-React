@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 // import { Arrow } from "../../a
 // import slideImg from "../../../assets/abejeoye.jpg";
-import { Arrow, BtnSliderNext, BtnSliderPrev,Overlay } from "../../atoms";
+import { Arrow, BtnSliderNext, BtnSliderPrev,MenuBtn,Overlay } from "../../atoms";
 import { FloatingNav,HambugerMenu } from "../../molecules";
 import "./style.css";
 const images = [
@@ -19,6 +19,9 @@ export const History = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       slide < images.length - 1 ? setSlide((slide) => slide + 1) : setSlide(0);
+      // slide === 0
+      //   ? setSlide((slide) => (slide = images.length - 1))
+      //   : setSlide((slide) => slide - 1);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -27,27 +30,23 @@ export const History = () => {
     slide < images.length - 1 ? setSlide((slide) => slide + 1) : setSlide(0);
   };
   const prevSlide = () => {
-    // setSlide(setSlide((slide) => slide - 1));
-    // if(slide<0){
-    //   setSlide(images.length - 1);
-    // }
-    console.log(slide)
-    slide === 0
-      ? setSlide(slide => slide=5)
-      : setSlide(setSlide(slide => slide-1));
+      slide === 0
+        ? setSlide((slide) => (slide = images.length - 1))
+        : setSlide((slide) => slide - 1);
   };
-      const [moveNav, setmoveNav] = useState(false);
+      const [moveNav, setMoveNav] = useState(false);
       const lowerNav = () => {
-        setmoveNav((moveNav) => !moveNav);
+        setMoveNav((moveNav) => !moveNav);
       };
-      let checkmoveNav = moveNav ? "active" : "";
+      let checkMoveNav = moveNav ? "active" : "";
 
   return (
     <>
       <section className="history-container">
-        <Overlay activate={checkmoveNav} />
+        <Overlay activate={checkMoveNav} />
+        {/* <Arrow/> */}
         <HambugerMenu
-          activate={checkmoveNav}
+          activate={checkMoveNav}
           func={lowerNav}
           className="centralize"
         />
@@ -283,6 +282,7 @@ export const History = () => {
             </div>
           </div>
         </div>
+        <MenuBtn hamburgerFunc={lowerNav}/>
       </section>
     </>
   );

@@ -1,20 +1,122 @@
-.ginuwa{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+.ginuwa {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
-.ginuwa-section1{
-    width: 40%;
-    height: 100%;
-    background-color: beige;
+.ginuwa-section1 {
+  width: 40%;
+  height: 100%;
+  background-image: url(../../../assets/ginuwa.e4765c1eb1bbf7324286.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-.ginuwa-section2{
-    width: 60%;
-    height: 100%;
-    background-color: bisque;
+.ginuwa-section2 {
+  width: 60%;
+  height: 100%;
+  background-color: bisque;
 }
-.ginwa-img{
+.ginwa-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ginuwa-section2-top {
+  background-color: rgb(255, 255, 255);
+  padding: 48px 24px 24px;
+  border-radius: 0px 0px 20px 20px;
+  /* width: 95%; */
+}
+.ginuwa-section2-top-span {
+  /* font-family: Roboto, sans-serif; */
+  font-size: 0.7rem;
+  line-height: 30px;
+}
+.search-container {
+  flex: 0 0 auto;
+  width: 50%;
+}
+.search {
+  border: 1.5px solid;
+  border-radius: 50px;
+  height: 45px;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+.ginuwa-section2-bottom {
+  display: flex;
+  margin: 20px 0;
+  height: 70vh;
+}
+.ginuwa-scroll-container {
+  width: 49.5%;
+  background-color: aquamarine;
+}
+.ginuwa-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+  
+ .ginuwa-scroll::-webkit-scrollbar-track {
+    box-shadow: #000;
+    border-radius: 10px;
+} 
+  
+.ginuwa-scroll::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+    height: 73vh;
+
+} 
+  .ginuwa-scroll::-webkit-scrollbar-thumb:hover {
+    background: #e74c3c;
+    border-radius: 10px;
+    height: 10vh;
+
+}
+.ginuwa-display-container {
+  width: 49.5%;
+  background-color: burlywood;
+}
+.ginuwa-scroll {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  place-content: stretch flex-start;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  order: 0;
+  -webkit-box-flex: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  max-height: 65vh;
+  margin: 0px;
+  padding: 0px 24px;
+  overflow-y: auto;
+}
+
+@media all and (max-width: 992px) {
+  .ginuwa-section1 {
+    display: none;
+  }
+  .ginuwa-section2 {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .search-container {
+    flex: 1 0 0%;
+    width: 100%;
+  }
+}
+@media all and (max-width: 576px) {
+  .ginuwa-display-container {
+    display: none;
+  }
+  .ginuwa-scroll-container {
+    width: 100%;
+  }
 }
